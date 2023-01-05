@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class Produto {
@@ -12,8 +13,10 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@Column(name = "CODIGO", length = 50, nullable = false)
+	@NotBlank(message = "É obrigatório preencher o campo codigo")
 	private String codigo;
 	@Column(name = "DESCRICAO", length = 100, nullable = false)
+	@NotBlank(message = "É obrigatório preencher o campo descrição")
 	private String descricao;
 	
 	public Long getId() {
